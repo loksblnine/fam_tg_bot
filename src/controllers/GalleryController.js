@@ -6,7 +6,8 @@ const getPhotoById = async (id) => {
     return models.initModels(sequelize).gallery.findAll({
       where: {
         id
-      }
+      },
+      raw: true
     });
   } catch
     (e) {
