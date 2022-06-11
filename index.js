@@ -1,7 +1,7 @@
 const TelegramAPI = require("node-telegram-bot-api");
 
-const {Canvas, Image} = require('canvas');
-const mergeImages = require('merge-images');
+// const {Canvas, Image} = require('canvas');
+// const mergeImages = require('merge-images');
 
 require('dotenv').config();
 const db_config = require("./src/configs/db/config");
