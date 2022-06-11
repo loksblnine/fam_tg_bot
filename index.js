@@ -5,7 +5,8 @@ const TelegramAPI = require("node-telegram-bot-api");
 
 require('dotenv').config();
 const db_config = require("./src/configs/db/config");
-const UserModel = require("./src/configs/db/models/User");
+// const UserModel = require("./src/configs/db/models/User");
+const Gallery = require("./src/configs/db/models/Gallery");
 
 const token = process.env.API_TELEGRAM_HTTP_TOKEN;
 const bot = new TelegramAPI(token, {polling: true});
@@ -41,7 +42,7 @@ const start = async () => {
     const {chat} = msg;
     const chatId = chat.id;
     const randomed = Math.random(25) + 1;
-    const photo = await UserModel.findOne({id: randomed});
+    const photo = await Gallery.findOne({id: randomed});
     bot.sendPhoto(chatId, photo.url);
     bot.sendMessage(chatId, `а что ты надеялся тут увидеть`);
   });
