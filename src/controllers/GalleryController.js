@@ -3,7 +3,7 @@ const sequelize = require("../configs/db/config");
 
 const getPhotoById = async (id) => {
   try {
-    return models.initModels(sequelize).gallery.findAll({
+    return models.initModels(sequelize).gallery.findOne({
       where: {
         id
       },
