@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         primaryKey: true,
         unique: true,
-        default: "nextval('gallery_id_seq'::regclass)"
+        autoIncrement: true
       },
       url: {
         type: DataTypes.STRING,
