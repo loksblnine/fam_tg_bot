@@ -13,6 +13,22 @@ const createUser = (name) => {
   }
 };
 
+const findOneByUserId = (userId) => {
+  try {
+    return models.initModels(sequelize).user.findOne({
+      where: {
+        user_id: userId
+      }
+    }).then((rows) => {
+      return rows.length > 0;
+    });
+  } catch
+    (e) {
+    console.log("Пизда всему: ", e.toString());
+  }
+};
+
 module.exports = {
-  createUser
+  createUser,
+  findOneByUserId
 };
