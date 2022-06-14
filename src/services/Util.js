@@ -6,7 +6,7 @@ const isUserInDatabase = (userId) => {
 
 const filterNonExist = (usersArray) => {
   let array = [];
-
+  //make sync
   usersArray.forEach((user, id, array) => {
     if (!isUserInDatabase(user.id)) {
       console.log(5432, true);
