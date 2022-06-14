@@ -8,7 +8,7 @@ function concatUserAppeal(usersArray) {
   let string = "";
   usersArray.forEach((user, id, array) => {
     string += `[${user.username}](tg://user?id=${user.id})`;
-    if (array.length >= id - 1) {
+    if (array.length <= id - 1) {
       string += ', ';
     }
   });
