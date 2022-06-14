@@ -29,6 +29,20 @@ module.exports = function (sequelize, DataTypes) {
           ]
         },
         {
+          name: "user_name_uindex",
+          unique: true,
+          fields: [
+            {name: "name"},
+          ]
+        },
+        {
+          name: "user_directchatid_uindex",
+          unique: true,
+          fields: [
+            {name: "directChatId"},
+          ]
+        },
+        {
           name: "user_pk",
           unique: true,
           fields: [

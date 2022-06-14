@@ -17,7 +17,7 @@ const findOneByUserId = (userId) => {
   try {
     return models.initModels(sequelize).user.findOne({
       where: {
-        user_id: userId
+        directChatId: userId
       }
     }).then((rows) => {
       return rows.length > 0;
