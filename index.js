@@ -50,16 +50,8 @@ const start = async () => {
     const randomed = getRandomInt(25) + 1;
     const photo = await GalleryController.getPhotoById(randomed);
     console.log(1234, photo);
-    bot.sendPhoto(chatId, photo.url);
-    bot.sendMessage(chatId, `а что ты надеялся тут увидеть`);
-  });
-
-  bot.onText(/\/refresh_db/, (msg) => {
-    const {chat} = msg;
-    const chatId = chat.id;
-    //if no in db add
-    bot.getChatMemberCount(chatId).then((resp) => {
-      console.log(11, resp);
+    bot.sendPhoto(chatId, photo.url, {
+      caption: "а что ты надеялся тут увидеть"
     });
   });
 
