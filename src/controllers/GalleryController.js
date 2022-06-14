@@ -1,7 +1,7 @@
 const models = require("../configs/db/models");
 const sequelize = require("../configs/db/config");
 
-const getPhotoById = async (id) => {
+const getPhotoById = (id) => {
   try {
     return models.initModels(sequelize).gallery.findOne({
       where: {
