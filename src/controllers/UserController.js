@@ -20,7 +20,7 @@ const findOneByUserId = (userId) => {
         directChatId: userId
       }
     }).then((rows) => {
-      return rows.length > 0;
+      return rows?.length > 0;
     });
   } catch
     (e) {
