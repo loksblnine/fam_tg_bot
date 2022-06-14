@@ -31,7 +31,7 @@ const start = async () => {
     //add to db
     const {chat} = msg;
     const chatId = chat.id;
-    bot.sendMessage(chatId, "Привет! Прежде, чем задавать вопросы, сначала пройдись по закрепленным сообщениям - там вся важная информация, проголосуй, пожалуйста, в опросах, в первом закрепленном есть faq - прочитай и изучи. Если после этого всего останутся вопросы - пиши, спрашивай - тут тебе на всё ответят.", {parse_mode: 'Markdown'});
+    bot.sendMessage(chatId, "Привет! Прежде, чем задавать вопросы, сначала пройдись по закрепленным сообщениям - там вся важная информация, проголосуй, пожалуйста, в опросах, в первом закрепленном есть [faq](https://docs.google.com/document/d/1gAQ9iU3qpi_rxzpzlhtqKlo7NXWuJpD5CRutI3jHtLk/) - прочитай и изучи. Если после этого всего останутся вопросы - пиши, спрашивай - тут тебе на всё ответят.", {parse_mode: 'Markdown'});
   });
 
   bot.onText(/\/echo/, (msg) => {
@@ -56,6 +56,15 @@ const start = async () => {
     //if no in db add
     bot.getChatMemberCount(chatId).then((resp) => {
       console.log(11, resp);
+    });
+  });
+
+  bot.on('left_chat_member', (msg) => {
+    const {chat} = msg;
+    const chatId = chat.id;
+    console.log(112, msg);
+    bot.sendPhoto(chatId, 'https://www.streamscheme.com/wp-content/uploads/2022/02/sadge-600.png', {
+      caption: `Есть пробитие`
     });
   });
 
