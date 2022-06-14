@@ -11,7 +11,7 @@ const getPhotoById = (id) => {
     });
   } catch
     (e) {
-    console.log("Пизда всему: ", e.toString());
+    console.log("Пизда всему: [GalleryController]: getPhotoById", e.toString());
   }
 };
 

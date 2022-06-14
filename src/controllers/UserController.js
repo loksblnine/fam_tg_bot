@@ -1,15 +1,15 @@
 const models = require("../configs/db/models");
 const sequelize = require("../configs/db/config");
 
-const createUser = (name) => {
+const createUser = (name, id) => {
   try {
     return models.initModels(sequelize).user.create({
       name,
-
+      directChatId: id
     });
   } catch
     (e) {
-    console.log("Пизда всему: ", e.toString());
+    console.log("Пизда всему: [UserController]: createUser", e.toString());
   }
 };
 
@@ -24,7 +24,7 @@ const findOneByUserId = (userId) => {
     });
   } catch
     (e) {
-    console.log("Пизда всему: ", e.toString());
+    console.log("Пизда всему: [UserController]: findOneByUserId", e.toString());
   }
 };
 
