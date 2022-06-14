@@ -18,8 +18,10 @@ const findOneByUserId = (userId) => {
     return models.initModels(sequelize).user.findOne({
       where: {
         directChatId: userId
-      }
+      },
+      raw: true,
     }).then((rows) => {
+      console.log(rows);
       return rows?.length > 0;
     });
   } catch
