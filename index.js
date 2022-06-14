@@ -6,7 +6,7 @@ const TelegramAPI = require("node-telegram-bot-api");
 require('dotenv').config();
 const db_config = require("./src/configs/db/config");
 const GalleryController = require("./src/controllers/GalleryController");
-// const UserModel = require("./src/configs/db/models/User");
+const UserController = require("./src/controllers/UserController")
 const Gallery = require("./src/configs/db/models/Gallery");
 const {getRandomInt} = require("./src/utils");
 
@@ -31,6 +31,9 @@ const start = async () => {
     //add to db
     const {chat} = msg;
     const chatId = chat.id;
+    console.log(msg);
+    UserController.createUser(msg.new_chat_members[0].name)
+
     bot.sendMessage(chatId, "Привет! Прежде, чем задавать вопросы, сначала пройдись по закрепленным сообщениям - там вся важная информация, проголосуй, пожалуйста, в опросах, в первом закрепленном есть [faq](https://docs.google.com/document/d/1gAQ9iU3qpi_rxzpzlhtqKlo7NXWuJpD5CRutI3jHtLk/) - прочитай и изучи. Если после этого всего останутся вопросы - пиши, спрашивай - тут тебе на всё ответят.", {parse_mode: 'Markdown'});
   });
 
@@ -62,7 +65,8 @@ const start = async () => {
   bot.on('left_chat_member', (msg) => {
     const {chat} = msg;
     const chatId = chat.id;
-    console.log(112, msg);
+    const messageId = msg.message_id;
+    bot.deleteMessage(chatId, messageId);
     bot.sendPhoto(chatId, 'https://www.streamscheme.com/wp-content/uploads/2022/02/sadge-600.png', {
       caption: `Есть пробитие`
     });
