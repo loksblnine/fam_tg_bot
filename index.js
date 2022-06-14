@@ -33,7 +33,7 @@ const start = async () => {
     const chatId = chat.id;
     console.log(11234, msg);
     const appliedString = Util.concatUserAppeal(msg.new_chat_members);
-    UserController.createUser(msg.new_chat_members[0].name);
+    // UserController.createUser(msg.new_chat_members[0].name);
 
     bot.sendMessage(chatId, `Привет, ${appliedString}! Прежде, чем задавать вопросы, сначала пройдись по закрепленным сообщениям - там вся важная информация, проголосуй, пожалуйста, в опросах, в первом закрепленном есть [faq](https://docs.google.com/document/d/1gAQ9iU3qpi_rxzpzlhtqKlo7NXWuJpD5CRutI3jHtLk/) - прочитай и изучи. Если после этого всего останутся вопросы - пиши, спрашивай - тут тебе на всё ответят.`, {parse_mode: 'Markdown'});
   });
