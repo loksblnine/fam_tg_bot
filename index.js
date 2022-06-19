@@ -47,7 +47,7 @@ const start = async () => {
   bot.onText(/\/start/, async (msg) => {
     const {chat} = msg;
     const chatId = chat.id;
-    const randomed = getRandomInt(25) + 1;
+    const randomed = getRandomInt(83) + 1;
     const photo = await GalleryController.getPhotoById(randomed);
     console.log(1234, photo);
     bot.sendPhoto(chatId, photo.url, {
